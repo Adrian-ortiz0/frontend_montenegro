@@ -2,7 +2,7 @@ import React from "react";
 
 const AdminSalesTable = () => {
   return (
-    <div className="admin_sections-sales">
+    <div className="admin_sections">
       <div className="admin_sales-container">
         <div className="admin_sales-columns">
           <div>
@@ -12,10 +12,10 @@ const AdminSalesTable = () => {
             <p>N°Order</p>
           </div>
           <div>
-            <p>Cliente</p>
+            <p>Client</p>
           </div>
           <div>
-            <p>Fecha Orden</p>
+            <p>Date</p>
           </div>
         </div>
       </div>

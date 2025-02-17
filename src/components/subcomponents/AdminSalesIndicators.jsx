@@ -1,6 +1,8 @@
 import React from 'react'
 import SalesPopularProduct from './SalesPopularProduct'
 import SalesGraph from './SalesGraph'
+import SalesBarGraph from './SalesBarGraph'
+import SalesHistory from './SalesHistory'
 
 const AdminSalesIndicators = () => {
   return (
@@ -10,6 +12,8 @@ const AdminSalesIndicators = () => {
         <SalesGraph />
       </div>
       <div className='admin_second-section--sales'>
+        <SalesBarGraph />
+        <SalesHistory />
       </div>
     </div>
   )

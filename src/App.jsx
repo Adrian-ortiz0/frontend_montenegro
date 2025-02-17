@@ -5,6 +5,7 @@ import AdminDashBoard from './components/AdminDashBoard'
 import AdminOrdersDashBoard from './components/AdminOrdersDashBoard'
 import AdminClientsDashBoard from './components/AdminClientsDashBoard'
 import AdminSalesDashBoard from './components/AdminSalesDashBoard'
+import AdminSalesHistory from './components/AdminSalesHistory'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='/admin-orders' element={<AdminOrdersDashBoard />}/>
         <Route path='/admin-clients' element={<AdminClientsDashBoard />} />
         <Route path='/admin-sales' element={<AdminSalesDashBoard />} />
+        <Route path='/admin-sales-history' element={<AdminSalesHistory />} />
       </Routes>
     </Router>
   )

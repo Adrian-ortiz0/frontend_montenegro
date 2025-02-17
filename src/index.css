@@ -87,7 +87,7 @@ body {
 
 .logo_section h2 {
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0;
   font-weight: 700;
   letter-spacing: 1px;
@@ -399,8 +399,9 @@ body {
 .admin_second-section--sales{
   width: 100%;
   height: 50%;
-  border: 1px solid pink;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
   
 }
 
@@ -471,4 +472,46 @@ body {
 /* Ajustes para el contenedor del gráfico */
 .recharts-wrapper {
   font-family: 'Roboto', sans-serif;
+}
+
+
+/* BarrGraph */
+
+
+.sales_graph .recharts-bar-rectangle {
+  transition: fill 0.3s ease;
+}
+
+.sales_graph .recharts-bar-rectangle:hover {
+  fill: #64b5f6 !important;
+}
+
+/* Sales history */
+
+.sales_history{
+  width: 30%;
+  height: 80%;
+  border: 1px solid rgba(255, 255, 255, 0.081);
+  background-color: #51515118;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.sales_history button{
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2c2c2c;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sales_history button:hover{
+  background-color: #535353;
 }
