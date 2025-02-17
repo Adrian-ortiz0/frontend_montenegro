@@ -31,11 +31,11 @@ const navigate = useNavigate();
         </button>
       </div>
       <div className='profile_buttons'>
-        <button className="nav_button">
+        <button className="nav_button" onClick={() => navigate("/admin-profile")}>
           <AccountCircle className="nav_icon" />
           <span>Perfil</span>
         </button>
-        <button className="nav_button" id='log_out-button' onClick={() => navigate("/")}>
+        <button className="nav_button" id='log_out-button' onClick={() => navigate("/admin-login")}>
           <ExitToApp className="nav_icon" />
           <span>Salir</span>
         </button>

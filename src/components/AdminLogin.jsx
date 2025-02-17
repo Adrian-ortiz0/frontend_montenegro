@@ -1,6 +1,11 @@
 import { TextField, Button, styled } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 const AdminLogin = () => {
+
+
+  const navigate = useNavigate();
+
   return (
     <div className="login_container">
       <div className="login">
@@ -41,6 +46,7 @@ const AdminLogin = () => {
         </div>
         
         <Button
+          onClick={() => navigate("../admin-dashboard")}
           variant="contained"
           fullWidth
           size="large"

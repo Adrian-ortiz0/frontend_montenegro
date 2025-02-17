@@ -113,7 +113,6 @@ body {
   width: 100%;
   padding: 1rem 1.5rem;
   border: none;
-  border-radius: 12px;
   background: transparent;
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
@@ -514,4 +513,56 @@ body {
 
 .sales_history button:hover{
   background-color: #535353;
+}
+
+/* Profile */
+
+.admin_profile-container{
+  width: 80%;
+  height: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.081);
+  background-color: #51515118;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile{
+  width: 60%;
+  height: auto;
+  background-color: #e9e9e90b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+  width: 100%;
+  height: 50%;
+}
+
+.profile_info button{
+  height: 40px;
+  min-width: 100px;
+  border-radius: 10px;
+  border: none;
+  background-color: #3f3f3f;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.profile_info button:hover{
+  background-color: #4d4d4d;
+}
+
+.profile_username{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
