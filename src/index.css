@@ -181,7 +181,7 @@ body {
   justify-content: center;
   gap: 15px;
   width: 75%;
-  height: 40%;
+  height: 50%;
 }
 
 .add_button{
@@ -273,6 +273,55 @@ body {
   font-weight: bold;
 }
 
+/* AdminOrdersTable */
 
+.admin_orders-container{
+  width: 80%;
+  height: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.081);
+  background-color: #51515118;
+  border-radius: 15px;
+}
 
+.admin_orders-columns{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 10%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.074);
+  background-color: rgba(0, 0, 0, 0.167);
+  border-radius: 0 0 10px 10px;
+}
 
+.admin_orders-columns div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+}
+
+.admin_orders-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.074);
+}
+
+.admin_orders-row div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+}
+
+.action_buttons{
+  gap: 10px;
+}
+
+.action-button{
+  background-color: transparent;
+  border: none;
+  width: auto;
+  cursor: pointer;
+}
