@@ -283,6 +283,11 @@ body {
   border-radius: 15px;
 }
 
+.admin_orders-table{
+  overflow-y: auto;
+  max-height: 90%;
+}
+
 .admin_orders-columns{
   display: flex;
   align-items: center;
@@ -348,6 +353,75 @@ body {
 }
 
 .admin_clients-columns div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+}
+
+.admin_clients-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.074);
+}
+
+.admin_cliente-table{
+  overflow-y: auto;
+  max-height: 90%;
+}
+
+.admin_clients-row div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+}
+
+/* AdminSales */
+
+.admin_sections-sales{
+  display: flex;
+  width: 75%;
+  height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.admin_first-section--sales{
+  width: 100%;
+  height: 50%;
+  border: 1px solid green;
+  display: flex;
+}
+
+.admin_second-section--sales{
+  width: 100%;
+  height: 50%;
+  border: 1px solid pink;
+  display: flex;
+}
+
+.admin_sales-container{
+  width: 80%;
+  height: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.081);
+  background-color: #51515118;
+  border-radius: 15px;
+}
+
+.admin_sales-columns{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 10%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.074);
+  background-color: rgba(0, 0, 0, 0.167);
+  border-radius: 0 0 10px 10px;
+}
+
+.admin_sales-columns div{
   display: flex;
   align-items: center;
   justify-content: center;
