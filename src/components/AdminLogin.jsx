@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router';
 
 const AdminLogin = () => {
 
-
   const navigate = useNavigate();
 
   return (
