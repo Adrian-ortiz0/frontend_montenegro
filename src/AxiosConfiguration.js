@@ -23,7 +23,7 @@ axiosInstance.interceptors.response.use(
     error => {
         if (error.response && error.response.status === 401) {
             console.warn('No autorizado, redirigiendo a login...');
-            window.location.href = '/login';
+            window.location.href = '/admin-login';
         }
         return Promise.reject(error);
     }

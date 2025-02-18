@@ -1,19 +1,45 @@
 import { TextField, Button, styled } from '@mui/material';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import axiosInstance from '../AxiosConfiguration';
 
 const AdminLogin = () => {
 
   const navigate = useNavigate();
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  })
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({...formData, [name]: value})
+  }
+
+  const handleSubmit = async (e) => {
+     e.preventDefault();
+    try{
+      const response = await axiosInstance.post("/adminLogin", formData)
+      console.log("Login exitoso", response.data);
+      navigate("../admin-dashboard")
+    } catch(error){
+      console.error("Error en login", error);
+      alert("Credenciales incorrectas, por favor intenta de nuevo")
+    }
+  }
+
   return (
     <div className="login_container">
-      <div className="login">
+      <form className="login" onSubmit={handleSubmit}>
         <h2>Admin Login</h2>
         <div className="input_group">
           <TextField
             fullWidth
-            label="Username"
+            label="Email"
+            name='email'
             variant="outlined"
+            onChange={handleChange}
             margin="normal"
             sx={{
               '& .MuiInputLabel-root': { color: 'rgba(255,255,255,0.7)' },
@@ -30,7 +56,9 @@ const AdminLogin = () => {
             fullWidth
             label="Password"
             type="password"
+            name='password'
             variant="outlined"
+            onChange={handleChange}
             margin="normal"
             sx={{
               '& .MuiInputLabel-root': { color: 'rgba(255,255,255,0.7)' },
@@ -45,8 +73,8 @@ const AdminLogin = () => {
         </div>
         
         <Button
-          onClick={() => navigate("../admin-dashboard")}
           variant="contained"
+          type='submit'
           fullWidth
           size="large"
           sx={{
@@ -62,7 +90,7 @@ const AdminLogin = () => {
         >
           Sign In
         </Button>
-      </div>
+      </form>
     </div>
   );
 };
