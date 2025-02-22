@@ -22,6 +22,9 @@ const AdminLogin = () => {
     try{
       const response = await axiosInstance.post("/adminLogin", formData)
       console.log("Login exitoso", response.data);
+      localStorage.setItem("admin", response.data.Email)
+      localStorage.setItem("token", response.data.token)
+
       navigate("../admin-dashboard")
     } catch(error){
       console.error("Error en login", error);

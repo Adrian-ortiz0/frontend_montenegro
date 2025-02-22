@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Add, Loupe } from "@mui/icons-material";
 import {
-  colors,
   FormControl,
   IconButton,
   InputLabel,
@@ -10,10 +9,28 @@ import {
   Select,
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { blue } from "@mui/material/colors";
+import ProductsModal from "../microComponents/ProductsModal";
+import axiosInstance from "../../AxiosConfiguration";
 
 const AdminProductsGrid = () => {
   const [anchorEl, setAnchorEl] = useState();
+  const [ingredientes, setIngredientes] = useState([]);
+
+  const getIngredients = async () => {
+    try{
+      const response = await axiosInstance.get("/admin/ingredient");
+      console.log("Ingredientes", response.data);
+      setIngredientes(response.data);
+
+    } catch(error){
+      console.error("Error fetching ingredientes", error)
+    }
+  }
+
+  useEffect(() => {
+    getIngredients();
+  }, []);
+
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -27,6 +44,16 @@ const AdminProductsGrid = () => {
 
   const handleChange = (e) => {
     setCategoryProducts(e.target.value);
+  };
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
   };
 
   const productos = [
@@ -94,13 +121,26 @@ const AdminProductsGrid = () => {
             <input type="text" placeholder="Buscar producto..." />
             <Loupe className="nav_icon" />
           </div>
-          <button className="add_button">
+
+          <button className="add_button" onClick={handleOpenModal}>
             <Add className="nav_icon" />
           </button>
-          <FormControl sx={{ m: 1, minWidth: 120, backgroundColor: "#2c2c2c", color: "white", borderRadius: "15px", marginRight: 3 }} size="small">
-            <InputLabel id="demo-select-small-label" sx={{color: "#b8b8b8"}}>Category</InputLabel>
+          <FormControl
+            sx={{
+              m: 1,
+              minWidth: 120,
+              backgroundColor: "#2c2c2c",
+              color: "white",
+              borderRadius: "15px",
+              marginRight: 3,
+            }}
+            size="small"
+          >
+            <InputLabel id="demo-select-small-label" sx={{ color: "#b8b8b8" }}>
+              Category
+            </InputLabel>
             <Select
-              sx={{color: "#888888", borderRadius: "15px"}}
+              sx={{ color: "#888888", borderRadius: "15px" }}
               labelId="demo-select-small-label"
               id="demo-select-small"
               value={categoryProducts}
@@ -161,6 +201,7 @@ const AdminProductsGrid = () => {
           ))}
         </div>
       </div>
+      <ProductsModal openModal={openModal} handleCloseModal={handleCloseModal} ingredientes={ingredientes} />
     </div>
   );
 };
