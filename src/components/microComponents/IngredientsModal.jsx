@@ -1,4 +1,4 @@
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography, TextField, Button } from "@mui/material";
 import React, { useState } from "react";
 import axiosInstance from "../../AxiosConfiguration";
 
@@ -19,7 +19,7 @@ const IngredientsModal = ({ handleCloseSubModal, subModals, getIngredients }) =>
     try {
       const response = await axiosInstance.post("/admin/ingredient", formData);
       console.log(response.status);
-      alert("Ingrediente añadido con exito!");
+      alert("Ingrediente añadido con éxito!");
       setFormData({ name: "" });
       getIngredients();
     } catch (error) {
@@ -30,32 +30,36 @@ const IngredientsModal = ({ handleCloseSubModal, subModals, getIngredients }) =>
   return (
     <Modal open={subModals} onClose={() => handleCloseSubModal("ingredientes")}>
       <Box
-        className="box_modal"
         sx={{
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          height: "50%",
-          width: "30%",
+          width: { xs: "90%", sm: "70%", md: "30%" },
           bgcolor: "#252525",
           border: "1px solid #00000016",
           boxShadow: 24,
           p: 4,
         }}
       >
-        <Typography variant="h6">Agregar Ingrediente</Typography>
-        <form action="" className="ingredientes_form" onSubmit={handleSubmit}>
-          <div className="products_form-inputGroup">
-            <label htmlFor="ingrediente">Nuevo ingrediente:</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit">Añadir</button>
+        <Typography variant="h6" color="white" gutterBottom>
+          Agregar Ingrediente
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Nuevo ingrediente"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+            required
+            InputLabelProps={{ style: { color: "white" } }}
+            inputProps={{ style: { color: "white" } }}
+          />
+          <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
+            Añadir
+          </Button>
         </form>
       </Box>
     </Modal>
