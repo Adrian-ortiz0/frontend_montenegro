@@ -293,6 +293,45 @@ body {
   font-weight: bold;
 }
 
+/* Ingredientes modal */
+
+.ingredientes_form{
+  display: flex;
+  height: 90%;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.products_form-inputGroup{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  align-items: center;
+}
+
+.products_form-inputGroup input {
+  border: none;
+  background-color: #4d4d4d;
+  border-radius: 12px;
+  height: 90%;
+}
+
+.ingredientes_form button{
+  width: 20%;
+  height: 10%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #4d4d4d;
+  transition: 0.3s;
+}
+
+.ingredientes_form button:hover{
+  background-color: #575757;
+}
+
 /* AdminOrdersTable */
 
 .admin_orders-container{

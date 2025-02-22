@@ -201,7 +201,9 @@ const AdminProductsGrid = () => {
           ))}
         </div>
       </div>
-      <ProductsModal openModal={openModal} handleCloseModal={handleCloseModal} ingredientes={ingredientes} />
+      <ProductsModal openModal={openModal} 
+      handleCloseModal={handleCloseModal} 
+      ingredientes={ingredientes} getIngredients={getIngredients} />
     </div>
   );
 };

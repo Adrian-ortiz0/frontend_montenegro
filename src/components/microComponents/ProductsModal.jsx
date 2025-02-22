@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Box, Modal, Typography } from "@mui/material";
+import IngredientsModal from "./IngredientsModal";
+import FlavorsModal from "./FlavorsModal";
 
-const ProductsModal = ({ openModal, handleCloseModal, ingredientes }) => {
+const ProductsModal = ({ openModal, handleCloseModal, ingredientes, getIngredients }) => {
   const [subModals, setSubModals] = useState({
     ingredientes: false,
     sabor: false,
@@ -53,56 +55,16 @@ const ProductsModal = ({ openModal, handleCloseModal, ingredientes }) => {
           </div>
         </Box>
       </Modal>
-      <Modal
-        open={subModals.ingredientes}
-        onClose={() => handleCloseSubModal("ingredientes")}
-      >
-        <Box className="box_modal" sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            height: "50%",
-            width: "30%",
-            bgcolor: "#252525",
-            border: "1px solid #00000016",
-            boxShadow: 24,
-            p: 4,
-          }}>
-          <Typography variant="h6">Agregar Ingrediente</Typography>
-          <form action="">
-            <label htmlFor="ingrediente">Nuevo ingrediente:</label>
-            <input type="text" />
-            <button>Añadir</button>
-          </form>
-        </Box>
-      </Modal>
-      <Modal
-        open={subModals.sabor}
-        onClose={() => handleCloseSubModal("sabor")}
-      >
-        <Box className="box_modal" sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "30%",
-            height: "50%",
-            bgcolor: "#252525",
-            border: "1px solid #00000016",
-            boxShadow: 24,
-            p: 4,
-          }}>
-          <Typography variant="h6">Crear Sabor</Typography>
-          <p>Aquí va el contenido para crear un nuevo sabor.</p>
-        </Box>
-      </Modal>
+      <IngredientsModal handleCloseSubModal={handleCloseSubModal} subModals={subModals.ingredientes} getIngredients={getIngredients} />
+      <FlavorsModal handleCloseSubModal={handleCloseSubModal} subModals={subModals.sabor} ingredientes={ingredientes} />
 
       <Modal
         open={subModals.producto}
         onClose={() => handleCloseSubModal("producto")}
       >
-        <Box className="box_modal" sx={{
+        <Box
+          className="box_modal"
+          sx={{
             position: "absolute",
             top: "50%",
             left: "50%",
@@ -113,7 +75,8 @@ const ProductsModal = ({ openModal, handleCloseModal, ingredientes }) => {
             border: "1px solid #00000016",
             boxShadow: 24,
             p: 4,
-          }}>
+          }}
+        >
           <Typography variant="h6">Crear Producto</Typography>
           <p>Aquí va el contenido para crear un producto.</p>
         </Box>
